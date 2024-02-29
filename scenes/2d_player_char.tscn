@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://denyoua4orkdf"]
+
+[ext_resource type="Script" path="res://scenes/2d_player_char.gd" id="1_7prf6"]
+[ext_resource type="Texture2D" uid="uid://ck60sljm3ow8h" path="res://sprites/playerchar.png" id="2_x74df"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6ms2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubh2a"]
+size = Vector2(10, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxme0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x74df")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="2d_player_char" type="CharacterBody2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_7prf6")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("CanvasItemMaterial_6ms2l")
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_ubh2a")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cxme0")
+animation = &"idle"
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -40)
+scale = Vector2(1e-05, 1e-05)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.0
